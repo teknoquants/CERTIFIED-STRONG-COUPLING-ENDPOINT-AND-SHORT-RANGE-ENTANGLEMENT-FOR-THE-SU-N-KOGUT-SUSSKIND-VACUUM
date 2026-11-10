@@ -1,0 +1,81 @@
+
+=== Definitions D1-D14 ===
+  [PASS] D1: c_N = (N^2-1)/N is the smallest positive Casimir  (N=2: 1.5000; N=3: 2.6667; N=4: 3.7500; N=5: 4.8000; N=6: 5.8333)
+  [PASS] D4: H_L(g) = (g^2 c_N/2) Hbar_L + g^{-2} N |P_L| 1
+  [PASS] D8, D9: beta* = 1/kappa_Y and the two forms of g0(N) agree
+  [PASS] D11: ln Z(beta) - (3/2) ln(1/beta) is bounded on (0,1] (SU(2)); c_Z finite  (c_Z = 1.1673)
+  [PASS] D12: |S_w(A)| <= (2w+1)^3 |dA| on random regions
+  -> Definitions: 5/5 checks passed
+
+=== Theorem 1 - certified strong-coupling endpoint ===
+  [PASS] (i.1) iota is injective  (300 links)
+  [PASS] (i.2) iota(dp) is contained in 2x + Lambda_0
+  [PASS] (i.4) at most 3 plaquettes per lower corner (boundary included)
+  [PASS] (i.3) sup |ReTr rho(U)| = N (so ||psi_p|| = 2N/c_N)  (N=2: max sample 1.999, at 1: 2; N=3: max sample 2.662, at 1: 3; N=4: max sample 3.204, at 1: 4)
+  [PASS] (ii.1)-(ii.2) g >= g0 <=> 6N/(g^4 c_N) <= beta*;  beta* < c1;  1 - c2 beta* >= 1/2
+  [PASS] (ii.3) supports z + Lambda_0 of nonzero phi_z lie in B_L
+  [PASS] (ii.4) illustration: gap >= 1 - 4 beta uniformly in size  (beta=0.02: min gap 0.982; beta=0.05: min gap 0.963; beta=0.1: min gap 0.878)
+  [PASS] (ii.5) gap of a decoupled sum = min of gaps
+  [PASS] (ii.6) gamma >= 1/2  =>  H_L - E_0 >= (g^2 c_N/4)(1 - P_0)
+  [PASS] (ii.7) positivity improving => unique positive ground state, invariant under the symmetry
+  [PASS] (iii) 6N^2/(N^2-1): 8 at N=2, 27/4 at N=3, decreasing to 6, maximal at N=2
+  -> Theorem 1: 11/11 checks passed
+
+=== Lemma 2 - Lieb-Robinson bound ===
+  [PASS] (1) H = H0 + Phi self-adjoint, bounded below
+  [PASS] (2) tau_t = tau0_t o alpha_t and dW/dt = i tau0_{-t}(Phi) W
+  [PASS] (3) tau0_t preserves supports and norms
+  [PASS] (4-5) Lieb-Robinson bound holds with on-site Emax = 30  (max lhs/rhs 0.134)
+  [PASS] (4-5) same bound holds with Emax = 3000 (independent of the on-site spectrum)  (max lhs/rhs 0.106)
+  [PASS] (6) each site lies in at most 8 grouped supports z + Lambda_0, z in 2Z^3  (max 8)
+  [PASS] (6) ||Phi||_mu <= 8 e^{2 mu} 6N/(g^4 c_N) (diam_inf Lambda_0 = 2)
+  -> Lemma 2: 7/7 checks passed
+
+=== Theorem 3 - exponential clustering ===
+  [PASS] (2) gap above a nondegenerate ground state, gamma >= 1/2 (qubit chain, L = 10)  (gap 0.910)
+  [PASS] (1) Lieb-Robinson input: ||[tau_t(A),B]|| <= 2||A||||B|| e^{-mu d} e^{2||Phi|| t}
+  [PASS] (3) centring: [tau_t(A), B~] = [tau_t(A), B], P0 B~ Omega = 0, <AB> - <A><B> = <A B~>
+  [PASS] (4-5) ||tau_z(B(a))|| <= ||B|| e^{a (Im z)^2}, valid with an on-site level at 500  (max ratio 0.705)
+  [PASS] (7) clustering bound with mu3 = (mu/2)/(4||Phi||_mu + 1/2): qubit chain L = 10  (max |corr|/bound 7.53e-03)
+  [PASS] (7) clustering bound: three-level chain L = 6 with on-site level at 40  (gap 0.983, max |corr|/bound 3.06e-03)
+  [PASS] (8) mu = 1/2: 4||Phi||_{1/2} <= 192 e N/(g^4 c_N) and mu3 >= (1/4)/(192 e N/(g^4 c_N) + 1/2)
+  -> Theorem 3: 7/7 checks passed
+
+=== Lemma 4 - local electric energy and Gibbs bound ===
+  [PASS] (1) <h_e> <= E0(H) - min_u E0(K(u))  (<h_e> = 0.05781 <= 0.10472)
+  [PASS] (3) every fibre K(u) has a unique ground state, uniform gap  (min gap 1.093)
+  [PASS] (4) E0(H) <= max_u E0(K(u)) + sup_u ||d_u phi||^2  (-0.12285 <= -0.03795)
+  [PASS] (5) spread of E0(K(u)) <= #pl * lambda * width  (spread 4.41e-14 <= 2.0)
+  [PASS] (6) ||d_u phi|| <= (1/gap_K) * #pl * lambda * ||d psi||  (0.4355 <= 0.9149)
+  [PASS] (7) <h_e> <= spread bound + (#pl lambda ||d psi|| / gap)^2  (0.05781 <= 2.8370)
+  [PASS] (7) e4(N, lambda) = 4 lambda (4N/c_N) + c_N^{-1} (N^2-1)(16 sqrt(N) lambda/c_N)^2
+  [PASS] (ii) Gibbs bound S(rho) <= beta E + |A| ln Z(beta) (1 and 2 truncated SU(2) links)
+  [PASS] (ii) s(E) = inf_beta [beta E + ln Z(beta)] is finite and nonnegative (volume-law constant)
+  -> Lemma 4: 9/9 checks passed
+
+=== Theorem 5 - entanglement area law ===
+  [PASS] (i.0) eps > 1 => |A| s(e4) < C|dA| s(e4)
+  [PASS] (i.1) local unitaries leave S(sigma_A) unchanged  (0.229273 = 0.229273)
+  [PASS] (i.2) entropy reduces to the strip part S_w(A) cap A (<= ln dim)  (0.229273 = 0.229273 <= ln 2)
+  [PASS] (i.3) strip entropy <= |S cap A| (beta E + ln Z(beta)) (truncated SU(2))
+  [PASS] (i.4) (2w+1)^3 <= (2 ell + 3)^3 (1 + ln|A|)^3, w = ceil(ell ln|A|)
+  [PASS] (i.5) partial trace and pure-state trace distance <= vector distance
+  [PASS] (i.7) Winter: |S(rho) - S(sigma)| <= 2 eps S(gamma(E/eps)) + h(eps) (300 random pairs)  (max lhs/rhs 0.528)
+  [PASS] (i.7) S(gamma(E')) <= beta E' + ln Z(beta)
+  [PASS] (i.8) beta = 1/|A| gives 2 eps S(gamma) <= 2max{e4,E_A} + C|dA|(D ln|A| + 2 c_Z) (exact SU(2) Z)  (c_Z = 1.1673)
+  [PASS] (i.9) S <= c5 |dA| (1+ln|A|)^3 with c5 = (2l+3)^3 s(E_A) + C(D+2c_Z) + 2max + ln2 + C s(e4)
+  [PASS] (ii) S(rho_A(0)) = 0 and S(rho_A(1)) <= int |dS/ds| ds <= c_S |dA| (|dA| = 1)  (S(1) = 0.0019, integral 0.0019, c_S = 0.0050)
+  [PASS] (ii) illustration: S(rho_A) bounded uniformly in |A| (gapped 1D chain)  (S by |A|: 0.002, 0.038, 0.001, 0.003, 0.002, 0.013, 0.003, 0.027, 0.013)
+  -> Theorem 5: 12/12 checks passed
+
+=== Summary ===
+  PASS  Definitions D1-D14  (0.6 s)
+  PASS  Theorem 1 - certified strong-coupling endpoint  (0.4 s)
+  PASS  Lemma 2 - Lieb-Robinson bound  (1.0 s)
+  PASS  Theorem 3 - exponential clustering  (9.9 s)
+  PASS  Lemma 4 - local electric energy and Gibbs bound  (2.8 s)
+  PASS  Theorem 5 - entanglement area law  (10.0 s)
+
+Not validated (open inputs of the paper): the numerical value of kappa_Y, a line-by-line replay of the
+Nachtergaele-Sims contour argument, and the hypotheses A_E and S of Theorem 5. Steps that concern the
+infinite lattice are checked on finite chains with the same operator structure.
